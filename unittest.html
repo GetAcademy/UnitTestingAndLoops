@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>QUnit</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.24.1.css">
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.24.1.js"></script>
+    <script src="exercises.js"></script>
+    <script>
+        QUnit.test('Oppgave 151 H', function (assert) {
+            // arrange
+            blankText();
+
+            // act
+            exercise151h();
+
+            // assert
+            const actualText = getText();
+            const expectedText = '   ##\n  ####\n ######\n########\n########\n ######\n  ####\n   ##\n';
+
+            assert.equal(actualText, expectedText);
+        });
+
+        QUnit.test('Oppgave 151 G', function (assert) {
+            // arrange
+            blankText();
+
+            // act
+            exercise151g();
+
+            // assert
+            const actualText = getText();
+            const expectedText = '########\n ######\n  ####\n   ##\n';
+
+            assert.equal(actualText, expectedText);
+        });
+
+        function getText() {
+            return document.getElementById('output').innerText;
+        }
+
+        function blankText(){
+            document.getElementById('output').innerText = '';
+        }
+    </script>
+    <pre id="output"></pre>
+</body>
+
+</html>
